@@ -23,13 +23,14 @@ Handshake is a decentralised, permissionless naming protocol built on a dedicate
 
 | Metric | Value | Date | Source |
 |--------|-------|------|--------|
-| Total domain registrations | 11.3 million | 31 Jul 2024 | [Namebase stats](https://www.namebase.io/stats/) via [HIP-68 discussion](https://github.com/handshake-org/HIPs/discussions/68) |
-| HNS burned in auctions | 62.5 million HNS | 31 Jul 2024 | [HIP-68 discussion](https://github.com/handshake-org/HIPs/discussions/68) |
+| Total domain registrations | 11.3 million | 31 Jul 2024 (data now 21 months old; no newer public figure found) | [Namebase stats](https://www.namebase.io/stats/) (caution: stats URL reliability uncertain after Namebase sold to undisclosed buyer Jan 2026) via [HIP-68 discussion](https://github.com/handshake-org/HIPs/discussions/68) |
+| HNS burned in auctions | 62.5 million HNS | 31 Jul 2024 (data now 21 months old) | [HIP-68 discussion](https://github.com/handshake-org/HIPs/discussions/68) |
 | Circulating supply | 677.7 million HNS | Apr 2026 | [CoinMarketCap](https://coinmarketcap.com/currencies/handshake/) |
 | Market cap | ~$3.3 million USD | Apr 2026 | [CoinMarketCap](https://coinmarketcap.com/currencies/handshake/) |
 | HNS price | ~$0.0049 USD | Apr 2026 | [CoinMarketCap](https://coinmarketcap.com/currencies/handshake/) |
+| HNS all-time high (ATH) | ~$0.85 USD | 5 May 2021 | [ath.ooo/hns](https://ath.ooo/hns); [CoinGecko](https://www.coingecko.com/en/coins/handshake) |
 | CMC rank | #1369 | Apr 2026 | [CoinMarketCap](https://coinmarketcap.com/currencies/handshake/) |
-| Fastest growth period | Jul to Nov 2023 | 2023 | [BestDapps deepdive 2025](https://bestdapps.com/blogs/news/a-deepdive-into-hns-2025) |
+| Fastest growth period | [DATA NEEDED] | [DATA NEEDED] | Claim "Jul to Nov 2023" could not be verified in the cited BestDapps article; no alternative source found |
 | FOSS developer airdrop recipients | ~250,000 GitHub users (15+ followers) + ~30,000 PGP WOT keys | 2020 | [hs-airdrop GitHub](https://github.com/handshake-org/hs-airdrop) |
 | FOSS airdrop claimed | ~25 million HNS (1.83% of initial supply) | 2020 | [hs-airdrop GitHub](https://github.com/handshake-org/hs-airdrop) |
 | HNS V2 airdrop to TLD owners (proposed) | 45 million HNS | cutoff Feb 2025 | [HIP-68 discussion](https://github.com/handshake-org/HIPs/discussions/68) |
@@ -48,7 +49,7 @@ Handshake is a decentralised, permissionless naming protocol built on a dedicate
 | Halving interval | Every 170,000 blocks (~3.25 years) | [ViaBTC HNS guide](https://www.viabtc.com/en/blog/Beginner-what-is-handshake-hns-how-to-mine-handshake-hns-458) |
 | Mining ceases (projected) | Block 5,270,000, ~year 2119 | [ViaBTC HNS guide](https://www.viabtc.com/en/blog/Beginner-what-is-handshake-hns-how-to-mine-handshake-hns-458) |
 | Investor allocation | 7.5% of initial 1.36B | [Namebase HNS economics](https://learn.namebase.io/about-handshake/handshake-coin) |
-| FOSS developer allocation | ~68% of initial 1.36B | [Namebase HNS economics](https://learn.namebase.io/about-handshake/handshake-coin) |
+| FOSS developer allocation | 70% of initial 1.36B (952 million HNS) | [Namebase HNS economics](https://learn.namebase.io/about-handshake/handshake-coin) |
 | No ICO | Yes (no token sale to public) | [Kraken HNS overview](https://www.kraken.com/learn/what-is-handshake-hns) |
 | Seed funding raised | $10.2 million (2018) | [Messari](https://messari.io/project/handshake) |
 | Seed investors | a16z, Founders Fund, Polychain Capital, Draper Associates (67 total) | [Messari](https://messari.io/project/handshake) |
@@ -87,7 +88,7 @@ Handshake replaces the DNS root zone (the file that maps TLDs to their authorita
 
 - **hsd full node**: runs the complete chain; acts as a recursive resolver and authoritative root server; most private option
 - **hnsd SPV light client**: downloads only block headers + Merkle proofs; translates HNS name data into DNS responses; connects to full nodes for proofs
-- **hnsquery**: cross-platform SPV library for embedding HNS resolution in apps
+- **hnsquery**: cross-platform SPV library for embedding HNS resolution in apps; routes DNS lookups over DoH (DNS-over-HTTPS), concealing query content within HTTPS traffic
 - **Third-party gateways**: hns.to, hns.is, rsvr.xyz act as DNS proxies; convenient but trust-dependent
 - Standard stub resolvers (e.g., browsers) are pointed at a local hsd/hnsd instance or a gateway
 
@@ -115,7 +116,7 @@ Handshake replaces the DNS root zone (the file that maps TLDs to their authorita
 | Chain-agnostic record data | UPDATE covenant stores up to 512 bytes of raw DNS data; any DNS record type can be stored |
 | No DHT layer | All name data is on-chain; no distributed hash table; resolution always queries the blockchain |
 | Censorship resistance | Censoring a name requires sustained majority hash-rate attack; no administrative revocation path |
-| Privacy limitation | SPV light clients leak TLD queries to the full nodes they connect to; the hnsquery library partially mitigates this via query hashing |
+| Privacy limitation | SPV light clients leak TLD queries to the full nodes they connect to; hnsquery partially mitigates this by routing DNS lookups over DoH (DNS-over-HTTPS), which hides query content in HTTPS traffic rather than exposing it on port 53 ([hnsquery README](https://github.com/imperviousinc/hnsquery/blob/main/README.md)) |
 
 ---
 
@@ -167,7 +168,7 @@ Handshake replaces the DNS root zone (the file that maps TLDs to their authorita
 |-----------|-------------|--------|
 | hsd | Full node daemon (Node.js); includes wallet, auction management, recursive resolver | Active |
 | hnsd | SPV light client in C; acts as authoritative root server for DNS; minimal footprint | Active |
-| hnsquery | Cross-platform SPV resolution library | Active |
+| hnsquery | Cross-platform SPV resolution library; uses DoH for DNS query privacy | Active |
 | hdns | Handshake-capable DNS module for Node.js | Active |
 | Bob Wallet | Desktop GUI wallet + hsd full node; DNS record management and auctions | Active |
 | Namebase | Primary HNS marketplace and registrar (acquired by Namecheap 2022; sold Jan 2026) | Ownership change |
@@ -191,7 +192,7 @@ Handshake replaces the DNS root zone (the file that maps TLDs to their authorita
 
 - [[namecoin]] — original blockchain naming (2011); .bit TLD; merged mining with Bitcoin
 - [[ens]] — smart-contract naming on Ethereum; SLD model; ENSv2 cross-chain
-- [[gnu-name-system]] — DHT-based naming; no blockchain; RFC 9498
+- [[gns]] — DHT-based naming; no blockchain; RFC 9498
 
 ---
 
@@ -201,13 +202,15 @@ Handshake replaces the DNS root zone (the file that maps TLDs to their authorita
 - [Handshake developer docs (hsd-dev.org)](https://hsd-dev.org/protocol/summary.html)
 - [hsd GitHub](https://github.com/handshake-org/hsd)
 - [hnsd GitHub](https://github.com/handshake-org/hnsd)
-- [Namebase stats](https://www.namebase.io/stats/)
+- [Namebase stats](https://www.namebase.io/stats/) (caution: reliability uncertain post-Jan 2026 ownership change)
 - [HIP-68: Handshake V2 proposal](https://github.com/handshake-org/HIPs/discussions/68)
 - [Namebase HNS coin economics](https://learn.namebase.io/about-handshake/handshake-coin)
 - [Namebase auction tutorial](https://www.namebase.io/blog/tutorial-3-basics-of-handshake-auction-and-bidding/)
 - [CoinTelegraph: What are HNS domains](https://cointelegraph.com/news/what-are-handshake-hns-domains-and-how-do-they-work)
 - [Kraken: What is Handshake HNS](https://www.kraken.com/learn/what-is-handshake-hns)
 - [CoinMarketCap HNS](https://coinmarketcap.com/currencies/handshake/)
+- [CoinGecko HNS](https://www.coingecko.com/en/coins/handshake)
+- [ath.ooo HNS all-time high](https://ath.ooo/hns)
 - [BestDapps deepdive 2025](https://bestdapps.com/blogs/news/a-deepdive-into-hns-2025)
 - [hs-airdrop GitHub (FOSS airdrop)](https://github.com/handshake-org/hs-airdrop)
 - [Matthew Zipkin: HNS TLSA security](https://matthewzipkin.medium.com/using-hns-websites-securely-69959ae02052)
