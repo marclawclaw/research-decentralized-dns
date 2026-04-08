@@ -16,7 +16,7 @@ ENS is the dominant on-chain naming protocol on Ethereum, mapping human-readable
 | Metric | Value | Date | Source |
 |--------|-------|------|--------|
 | Total names ever registered (cumulative) | ~2.8M (2022 peak year) | Jan 2023 | [CoinDesk](https://www.coindesk.com/markets/2023/01/04/ethereum-name-service-recorded-over-28m-domain-registrations-in-2022) |
-| Active (non-expired) domains | ~910K | Late 2025 | [CoinMarketCap AI summary](https://coinmarketcap.com/cmc-ai/ethereum-name-service/latest-updates/) |
+| Active (non-expired) domains | ~910K | Late 2025 | [SOURCE NEEDED: CoinMarketCap AI summary did not contain this figure; primary source (Dune dashboard or ENS DAO report) required] |
 | Unique owner addresses | ~838K | Jan 2024 | [ChainCatcher](https://www.chaincatcher.com/en/article/2115348) |
 | Daily resolution requests | ~3.2M | Feb 2026 | [CryptoNewsNavigator](https://www.cryptonewsnavigator.com/academy/article/why-ens-governance-decides-ethereums-identity-layer-future) |
 | ENS DAO annual revenue (2024) | $28.77M | 2024 full year | [ENS DAO Governance Forum](https://discuss.ens.domains/t/ens-revenue-reports/20577/2) |
@@ -52,7 +52,7 @@ Source: [ENS fee docs](https://support.ens.domains/en/articles/7900605-fees); [E
 4. User optionally sets a **primary name** (reverse record) so apps display their name instead of a raw address.
 5. User sets records: ETH address, other coin addresses (via ENSIP-9 multi-coin), content hash, avatar, email, URL, and arbitrary text key-value pairs.
 6. Any app performing address lookup calls the ENS resolver with the namehashed name to retrieve records.
-7. Owner must renew before expiry or the name enters a **90-day grace period**, then a **21-day Dutch auction** (decaying premium starting at $2,000), then open re-registration.
+7. Owner must renew before expiry or the name enters a **90-day grace period**, then a **21-day Dutch auction** (exponentially decaying premium starting at $100,000,000), then open re-registration.
 
 ### Protocol perspective
 
@@ -103,7 +103,7 @@ Resolution flow:
 
 - **Speculative squatting**: premium short names (3-4 chars) and common words are heavily squatted. The decaying-price Dutch auction on expired names mitigates re-registration speculation but does not address existing hoarding.
 - **Centralisation in CCIP-Read gateways**: off-chain resolver gateways are URLs embedded in smart contracts. The gateway operator controls data availability; if a gateway goes offline or censors queries, name resolution fails. The URL in the contract can be changed by the resolver owner, introducing a trust dependency. Source: [ENS Docs offchain resolvers](https://docs.ens.domains/resolvers/ccip-read/)
-- **Resolver privacy**: traditional name resolution (including ENS) exposes every lookup to the resolver operator. The resolver can log which addresses query which names. A grant proposal for verifiable privacy-preserving ENS resolution was submitted in 2024 but no production implementation exists as of April 2026. Source: [ENS DAO Forum privacy grant](https://discuss.ens.domains/t/grant-proposal-verifiable-and-privacy-preserving-ens-resolution/21108)
+- **Resolver privacy**: traditional name resolution (including ENS) exposes every lookup to the resolver operator. The resolver can log which addresses query which names. A grant proposal for verifiable privacy-preserving ENS resolution was submitted on 29 July 2025 but no production implementation exists as of April 2026. Source: [ENS DAO Forum privacy grant](https://discuss.ens.domains/t/grant-proposal-verifiable-and-privacy-preserving-ens-resolution/21108)
 - **Unicode homograph attacks**: ENS names support unicode, enabling visually identical look-alike names from different scripts (e.g. Cyrillic 'a' vs Latin 'a'). ENSIP-15 normalisation mitigates most cases but requires correct implementation in every client. MetaMask raised this as a security concern. Source: [SEAL ENS name handling](https://frameworks.securityalliance.org/ens/name-handling-normalization/)
 - **Grace period attack surface**: expired names during their 90-day grace period can have ownership transferred if the previous owner neglects renewal, enabling takeover of previously established names. This is documented in academic literature. Source: [arXiv ENS good bad ugly](https://arxiv.org/pdf/2104.05185)
 - **Governance token concentration**: ENS DAO uses token-weighted voting. Large holders and delegates wield disproportionate influence. Academic research on DAO voting power distributions notes this as a structural concern. Source: [ScienceDirect DAO voting power](https://www.sciencedirect.com/article/pii/S2096720924000216)

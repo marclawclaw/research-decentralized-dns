@@ -33,8 +33,8 @@ Source: [ENS Grace Period Support](https://support.ens.domains/en/articles/80469
 ### Temporary premium (Dutch auction, 21 days)
 
 - After the grace period, the name enters a decaying-price premium auction.
-- Initial price: $2,000 above the regular annual fee.
-- Price decays linearly to the regular annual fee over 21 days.
+- Initial price: $100,000,000 above the regular annual fee.
+- Price decays exponentially to the regular annual fee over 21 days.
 - Anyone can register by paying the current premium price.
 - Purpose: discourages bots from instantly registering desirable expired names; rewards those who actually want to use the name over speculators paying the highest premium.
 
