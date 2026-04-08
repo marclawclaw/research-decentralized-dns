@@ -41,11 +41,11 @@ How it works: two core smart contracts (Registry and Resolver) on Ethereum mainn
 |-------|-------|
 | Ecosystem | Ethereum + Polygon (L2) |
 | Approach | Smart contract; NFT domains (ERC-721) |
-| Primary metric | >4.2M registered Web3 domains; >800K traditional DNS domains under management |
-| Status | Active; ICANN-accredited registrar since 2024 |
+| Primary metric | >4.2M registered Web3 domains; 750,000+ traditional DNS domains under management (March 2026) |
+| Status | Active; ICANN-accredited registrar since August 2024; DNS registrar operations from October 2024 |
 | Source | [Unstoppable Domains Wikipedia](https://en.wikipedia.org/wiki/Unstoppable_Domains); [Domain Name Wire growth](https://domainnamewire.com/2026/03/12/unstoppable-domains-growth-the-past-and-what-happens-in-the-future/) |
 
-How it works: two smart contracts (Registry and Resolver) mirroring ENS but with one-time purchase (no renewal fee). Domains minted as ERC-721 NFTs on Polygon (for gas efficiency) with Ethereum as the canonical chain. Resolution checks Polygon first, then Ethereum. Supports .crypto, .wallet, .nft, .blockchain, .coin and others. ICANN accreditation lets Unstoppable also sell traditional DNS TLDs (.com, etc.).
+How it works: two smart contract architectures (legacy CNS on Ethereum L1; current UNS on Polygon). Domains minted as ERC-721 NFTs on Polygon for $0 gas. One-time purchase with no renewal fee. Supports 20+ Web3 TLDs including .crypto, .wallet, .nft, .x, .web3 and others. ICANN accreditation (August 2024) lets Unstoppable also sell traditional DNS TLDs (.com, etc.); DNS operations launched October 2024.
 
 ---
 
@@ -167,7 +167,7 @@ How it works: deploys domain registrar contracts across 50+ EVM chains; a single
 |-------|-------|
 | Ecosystem | Solana |
 | Approach | Smart contract (Solana program) |
-| Primary metric | 283,000+ registered .sol domains; 129,000+ unique holders; 150+ ecosystem partners |
+| Primary metric | 283,000+ registered .sol domains; 129,000+ unique holders; 150+ ecosystem partners [NOT VERIFIED] |
 | Status | Active; new SNS governance token launched May 2025 |
 | Source | [Bonfida SNS docs](https://naming.bonfida.org/); [Gate crypto wiki SNS](https://dex.gate.com/crypto-wiki/article/exploring-sns-id-insights-into-blockchain-name-services-20251219) |
 
@@ -253,7 +253,7 @@ Ranked by (a) architectural relevance to DHT/chain-agnostic design goal and (b) 
 |------|---------|-----------------|----------|
 | 1 | [[ens]] | Gold-standard smart-contract incumbent; ENSv2 crosschain architecture | High (2.5M+ names) |
 | 2 | [[handshake]] | PoW blockchain replacing root DNS; closest to chain-native TLD model | Medium (11.3M domains) |
-| 3 | [[gnu-name-system]] | Only production DHT-based system; RFC 9498 standard; directly relevant architecture | Low adoption but mature |
+| 3 | [[gns]] | Only production DHT-based system; RFC 9498 standard; directly relevant architecture | Low adoption but mature |
 | 4 | [[ipns]] | DHT-based mutable naming over libp2p/IPFS; foundational infrastructure | Very high (IPFS ecosystem) |
 | 5 | [[d3-doma]] | Chain-agnostic records; ICANN-compliant; $25M Paradigm-led; bridging Web2+Web3 | Early stage |
 | 6 | [[unstoppable-domains]] | Major incumbent; 4.2M domains; one-time ownership model | High |
@@ -276,7 +276,7 @@ The following 8 projects are selected for atomic-note deep research, covering th
 2. **[[handshake]]** - HNS
    - Rationale: only production system that replaces the DNS root zone; PoW-native TLD model; 11.3M domain registrations; important design contrast
 
-3. **[[gnu-name-system]]** - GNUnet GNS
+3. **[[gns]]** - GNUnet GNS
    - Rationale: the most mature pure-DHT naming system; RFC 9498 standardised; directly maps to the DHT-over-smart-contracts angle; no token/blockchain dependency
 
 4. **[[ipns]]** - InterPlanetary Name System
