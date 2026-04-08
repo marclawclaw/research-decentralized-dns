@@ -2,7 +2,7 @@
 
 ## Summary
 
-Unstoppable Domains (founded 2018, San Francisco) is a Web3 naming company that issues blockchain-based domain names as non-fungible tokens (ERC-721) on Ethereum and Polygon. Its primary differentiator is a one-time purchase model with no renewal fees, making names permanently owned assets rather than annually licensed handles. After gaining ICANN accreditation in August 2024, the company pivoted aggressively into traditional DNS registration; by early 2026, conventional DNS domains composed over 90% of its business by volume.
+Unstoppable Domains (founded 2018, San Francisco) is a Web3 naming company that issues blockchain-based domain names as non-fungible tokens (ERC-721) on Ethereum and Polygon. Its primary differentiator is a one-time purchase model with no renewal fees, making names permanently owned assets rather than annually licensed handles. After gaining ICANN accreditation in August 2024, the company launched DNS registrar operations in October 2024 and pivoted aggressively into traditional DNS registration; by early 2026, conventional DNS domains composed over 90% of its business by volume.
 
 ## Key Links
 
@@ -22,17 +22,18 @@ Unstoppable Domains (founded 2018, San Francisco) is a Web3 naming company that 
 ## Team and Funding
 
 - **CEO / Co-founder:** Matthew Gould
-- **Co-founders:** Braden Pezeshki, Bradley Kam
+- **Co-founders:** Bogdan Gusiev (CTO), Braden Pezeshki, Bradley Kam
 - **Founded:** 2018
 
 | Round | Date | Amount | Lead Investor | Source |
 |-------|------|--------|---------------|--------|
-| Seed | December 2018 | $4M | Draper Associates, Boost VC, Digital Currency Group | https://www.theblock.co/linked/24653/unstoppable-domains-raises-4m-to-create-a-decentralized-domain-registry |
-| Series A | July 2022 | $65M | Pantera Capital | https://fortune.com/2022/07/27/unstoppable-domains-pantera-led-65-million-round-1-billion-valuation-web3-nft-domain/ |
+| Seed | December 2018 | $730K | Boost VC | https://www.coindesk.com/markets/2019/05/23/decentralized-domain-registry-raises-4-million-from-draper-boost-vc/ |
+| Series A | May 2019 | $4M | Draper Associates (Boost VC also participated) | https://www.coindesk.com/markets/2019/05/23/decentralized-domain-registry-raises-4-million-from-draper-boost-vc/; https://www.finsmes.com/2019/05/unstoppable-domains-raises-4m-in-series-a-funding.html |
+| Series B | July 2022 | $65M | Pantera Capital | https://fortune.com/2022/07/27/unstoppable-domains-pantera-led-65-million-round-1-billion-valuation-web3-nft-domain/ |
 
-**Total raised:** $69M (as of July 2022). Valuation at Series A: $1 billion (unicorn). [Source: https://fortune.com/2022/07/27/unstoppable-domains-pantera-led-65-million-round-1-billion-valuation-web3-nft-domain/]
+**Total raised:** ~$70M (as of July 2022). Valuation at Series B: $1 billion (unicorn). [Source: https://fortune.com/2022/07/27/unstoppable-domains-pantera-led-65-million-round-1-billion-valuation-web3-nft-domain/]
 
-Series A co-investors: Mayfield, OKG Investments, Polygon, Boost VC, Draper Associates. [Source: https://fortune.com/2022/07/27/unstoppable-domains-pantera-led-65-million-round-1-billion-valuation-web3-nft-domain/]
+Series B co-investors: Mayfield, OKG Investments, Polygon, Boost VC, Draper Associates. [Source: https://fortune.com/2022/07/27/unstoppable-domains-pantera-led-65-million-round-1-billion-valuation-web3-nft-domain/]
 
 ## Adoption Metrics
 
@@ -46,9 +47,9 @@ Series A co-investors: Mayfield, OKG Investments, Polygon, Boost VC, Draper Asso
 | Gas savings for users on Polygon | $100M | Cumulative to 2022 | https://polygon.technology/blog/unstoppable-domains-users-save-100-million-in-fees-on-polygon |
 | Supported cryptocurrencies for resolution | 310+ | 2024 | https://docs.unstoppabledomains.com/resolution/overview |
 | Registrar accreditations held (ICANN shell entities) | 10 (UnstoppableUS1–10 LLC) | 2025 | https://domainincite.com/31629-unstoppable-buys-10-new-registrars |
-| Web3 TLD extensions offered | 10 | 2024 | https://cryptoninjas.net/2021/09/22/trust-wallet-adds-support-for-all-10-unstoppable-domains-crypto-name-extensions/ |
+| Web3 TLD extensions offered | 20+ | Early 2026 | https://unstoppabledomains.com/ |
 
-**Top Web3 TLDs by registration count (approximate, 2024):**
+**Top Web3 TLDs by registration count (approximate, circa 2021):**
 
 | TLD | Registrations | Source |
 |-----|--------------|--------|
@@ -56,7 +57,7 @@ Series A co-investors: Mayfield, OKG Investments, Polygon, Boost VC, Draper Asso
 | .wallet | 85,000 | https://beincrypto.com/learn/unstoppable-domains/ |
 | .nft | 77,000 | https://beincrypto.com/learn/unstoppable-domains/ |
 
-Note: these per-TLD counts appear to be from 2024 and may not reflect the full 4.6M total, which likely spans all TLDs and includes older registrations. [NOT CONFIRMED — discrepancy between per-TLD totals and overall figure needs reconciliation]
+Note: these per-TLD counts are from circa 2021 and do not reflect current totals. The overall 4.6M figure (November 2025) spans all 20+ TLDs accumulated since launch. Current per-TLD breakdowns are not published by Unstoppable Domains. [NOT FOUND: current per-TLD registration counts]
 
 ## How It Works
 
@@ -105,9 +106,9 @@ New second-level domains (e.g., `alice.x`) are minted only by **whitelisted mint
 
 ## Supported TLDs (Web3)
 
-The 10 Web3 TLD extensions offered (all on Ethereum/Polygon): `.crypto`, `.nft`, `.wallet`, `.coin`, `.bitcoin`, `.dao`, `.blockchain`, `.888`, `.x`, `.zil`.
+As of early 2026, Unstoppable Domains offers 20+ Web3 TLD extensions. The original ten were: `.crypto`, `.nft`, `.wallet`, `.coin`, `.bitcoin`, `.dao`, `.blockchain`, `.888`, `.x`, `.zil`. Subsequent additions include `.web3`, `.agent`, `.demos`, `.spend`, `.amped`, `.lunar`, `.derad`, and others launched via brand partnerships in 2024 and 2025.
 
-[Source: https://cryptoninjas.net/2021/09/22/trust-wallet-adds-support-for-all-10-unstoppable-domains-crypto-name-extensions/]
+[Source: https://unstoppabledomains.com/; https://www.globenewswire.com/news-release/2025/11/13/3187672/0/en/Unstoppable-Domains-and-Amp-xyz-Launch-Two-New-Web3-TLDs-spend-and-amped-to-Unite-Payments-and-People-Across-the-Amp-Ecosystem.html]
 
 ## Key Behaviours
 
@@ -129,7 +130,7 @@ A wallet address can be resolved to a domain name (reverse resolution), enabling
 
 ### ICANN Dual-Track Strategy
 
-After ICANN accreditation in August 2024, Unstoppable Domains began selling traditional DNS domains alongside its Web3 TLDs. By early 2026, CEO Matthew Gould stated that DNS domains made up more than 90% of the business by volume, and that within two to three years, DNS could account for 99%+. The company is also supporting 19+ Web3 companies to apply for ICANN gTLDs in the 2026 application round, seeking to legitimise its own Web3 TLDs (`.x`, `.wallet`, `.crypto`, `.nft`, `.dao`) in the traditional DNS root. [Source: https://domainnamewire.com/2026/03/12/unstoppable-domains-growth-the-past-and-what-happens-in-the-future/; https://circleid.com/posts/20240814-unstoppable-domains-receives-icann-accreditation]
+After ICANN accreditation in August 2024, Unstoppable Domains launched DNS registrar operations in October 2024 and began selling traditional DNS domains alongside its Web3 TLDs. By early 2026, CEO Matthew Gould stated that DNS domains made up more than 90% of the business by volume, and that within two to three years, DNS could account for 99%+. The company is also supporting 19+ Web3 companies to apply for ICANN gTLDs in the 2026 application round, seeking to legitimise its own Web3 TLDs (`.x`, `.wallet`, `.crypto`, `.nft`, `.dao`) in the traditional DNS root. [Source: https://domainnamewire.com/2026/03/12/unstoppable-domains-growth-the-past-and-what-happens-in-the-future/; https://circleid.com/posts/20240814-unstoppable-domains-receives-icann-accreditation; https://www.prnewswire.com/news-releases/unstoppable-domains-gains-icann-accreditation-becomes-largest-onchain-registrar-302222578.html]
 
 ## Architecture Decisions
 
@@ -146,7 +147,7 @@ Although domain records are immutable post-mint, new domain issuance is permissi
 
 ### Resolution Layer Choice
 
-The existence of three resolution methods (direct blockchain, resolution library, HTTP API) gives developers options across the trustlessness spectrum. However, most integrations default to the Resolution Service API for simplicity, which reintroduces a centralised dependency. Browser native support (Brave since v1.40; Opera for `.crypto` only) uses direct blockchain resolution. [Source: https://support.brave.app/hc/en-us/articles/39196019032973-Resolve-Methods-for-Unstoppable-Domains; https://support.unstoppabledomains.com/support/solutions/articles/48001252805-resolving-domains-in-brave]
+The existence of three resolution methods (direct blockchain, resolution library, HTTP API) gives developers options across the trustlessness spectrum. However, most integrations default to the Resolution Service API for simplicity, which reintroduces a centralised dependency. Browser native support (Brave since v1.40; Opera for all major Unstoppable TLDs including .crypto, .nft, .x, .wallet and others, expanded February 2023) uses direct blockchain resolution. [Source: https://support.brave.app/hc/en-us/articles/39196019032973-Resolve-Methods-for-Unstoppable-Domains; https://blogs.opera.com/crypto/2023/02/opera-partners-unstoppable-domains/]
 
 ### Off-Chain Identity Data
 
@@ -158,10 +159,10 @@ Profile metadata (email, avatar, social handles) for Login with Unstoppable is s
 |---------------|--------|
 | No renewal fees | One-time purchase; permanent ownership; no annual cost |
 | Zero gas on Polygon | Minting, transferring, and updating records are free on Polygon |
-| ICANN accreditation | Legitimate registrar status; sells traditional DNS domains alongside Web3 names |
+| ICANN accreditation | Legitimate registrar status (August 2024); DNS registrar operations launched October 2024; sells traditional DNS domains alongside Web3 names |
 | Web3 SSO | "Login with Unstoppable" provides portable identity via OIDC + wallet signature |
 | 310+ currency resolution | Single domain resolves to payment addresses for 310+ cryptocurrencies |
-| Browser-native resolution | Brave (all 10 TLDs) and Opera (.crypto only) resolve natively without extensions |
+| Browser-native resolution | Brave (all TLDs) and Opera (all major TLDs, expanded 2023) resolve natively without extensions |
 | Patent protection | Holds US Patent No. 11,558,344 ("Resolving Blockchain Domains"); USPTO upheld it against ENS challenge in November 2025 |
 
 ## Limitations and Criticisms
@@ -202,6 +203,8 @@ Unstoppable Domains holds a patent on blockchain domain resolution (US 11,558,34
 - https://github.com/unstoppabledomains/resolution (Resolution library, GitHub)
 - https://unstoppabledomains.com/blog/polygon-l2-solution (Unstoppable + Polygon: Hello L2, Goodbye Gas Fees!)
 - https://polygon.technology/blog/unstoppable-domains-users-save-100-million-in-fees-on-polygon (Unstoppable Domains Users Save $100 Million in Fees on Polygon, Polygon Technology)
+- https://www.coindesk.com/markets/2019/05/23/decentralized-domain-registry-raises-4-million-from-draper-boost-vc/ (Decentralized Domain Registry Raises $4 Million From Draper, Boost VC, CoinDesk, May 2019)
+- https://www.finsmes.com/2019/05/unstoppable-domains-raises-4m-in-series-a-funding.html (Unstoppable Domains Raises $4M in Series A Funding, FinSMEs, May 2019)
 - https://fortune.com/2022/07/27/unstoppable-domains-pantera-led-65-million-round-1-billion-valuation-web3-nft-domain/ (Unstoppable Domains notches $1 billion valuation, Fortune, July 2022)
 - https://www.prnewswire.com/news-releases/unstoppable-domains-gains-icann-accreditation-becomes-largest-onchain-registrar-302222578.html (Unstoppable Domains Gains ICANN Accreditation, PR Newswire, August 2024)
 - https://circleid.com/posts/20240814-unstoppable-domains-receives-icann-accreditation (Unstoppable Domains Receives ICANN Accreditation, CircleID, August 2024)
@@ -214,7 +217,9 @@ Unstoppable Domains holds a patent on blockchain domain resolution (US 11,558,34
 - https://blockworks.co/news/ens-unstoppable-domains-paten (ENS lead developer calls out Unstoppable Domain patents, Blockworks)
 - https://unstoppabledomains.com/blog/categories/announcements/article/patent-update (Unstoppable Domains Wins US Patent Trademark Office Patent Challenge Against ENS, Unstoppable Domains Blog, November 2025)
 - https://support.brave.app/hc/en-us/articles/39196019032973-Resolve-Methods-for-Unstoppable-Domains (Resolve Methods for Unstoppable Domains, Brave Help Center)
+- https://blogs.opera.com/crypto/2023/02/opera-partners-unstoppable-domains/ (Opera Browser and Unstoppable Domains Expand Collaboration, Opera Crypto Blog, February 2023)
 - https://tracxn.com/d/companies/unstoppable-domains/__5yK6TVAPTXnNb2zNMdcTpmVHN7NvV6ZGoWi9vQdwYz8 (Unstoppable Domains Company Profile, Tracxn, 2025)
+- https://www.crunchbase.com/person/bogdan-gusiev-b4ef (Bogdan Gusiev — CTO and Co-Founder, Unstoppable Domains, Crunchbase)
 
 ## Tags
 

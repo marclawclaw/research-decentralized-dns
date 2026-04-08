@@ -27,7 +27,7 @@ From the protocol's perspective, perpetual ownership converts a recurring subscr
 
 ### Contrast with ENS
 
-ENS charges an annual rent (approximately $5/year for five-character names; $160/year for three-character names as of 2024). This creates:
+ENS charges an annual rent (approximately $5/year for five-character-or-longer names; $160/year for four-character names; $640/year for three-character names as of 2024). [Source: https://support.ens.domains/en/articles/7900605-fees] This creates:
 - A recurring revenue model for the ENS DAO.
 - A natural name recycling mechanism: abandoned names expire and become available.
 - A financial barrier to hoarding large numbers of names indefinitely.
@@ -77,6 +77,7 @@ If a user loses their private key, the name is permanently inaccessible. There i
 - https://docs.unstoppabledomains.com/smart-contracts/overview/uns-architecture-overview (UNS Architecture Overview, Unstoppable Domains Developer Portal)
 - https://medium.com/unstoppabledomains/renewal-fee-announcement-940617d0a592 (Renewal Fee Announcement, Unstoppable Domains Medium, 2021)
 - https://unstoppabledomains.com/blog/categories/education/article/dns-fees (How Much Does a Domain Name Cost?, Unstoppable Domains Blog)
+- https://support.ens.domains/en/articles/7900605-fees (ENS Registration and Renewal Fees, ENS Support, 2024)
 - https://rulemobile.com/news/web3-domains-unstoppable-own-your-name-foreverno-renewals-no-renting (Web3 Domains: Own Your Name Forever, Rule Mobile)
 - https://coinbureau.com/review/unstoppable-domains (Unstoppable Domains Review, Coin Bureau)
 
