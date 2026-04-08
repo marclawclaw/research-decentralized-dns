@@ -11,18 +11,18 @@ SPACE ID is a multi-chain Web3 name service protocol and identity platform. It e
 | Metric | Value | Source | Date |
 |--------|-------|--------|------|
 | Registered domains | 6.7M+ | [CoinMarketCap CMC AI](https://coinmarketcap.com/cmc-ai/space-id/what-is/) | H1 2025 |
-| Unique domain owners | 2.7M+ | [CoinMarketCap CMC AI](https://coinmarketcap.com/cmc-ai/space-id/what-is/) | H1 2025 |
+| Unique domain owners | 1.3M+ | [GlobeNewsWire](https://www.globenewswire.com/news-release/2025/01/08/3006371/0/en/Coinstats-Partners-With-SPACE-ID-as-Web3-Domain-Name-Usage-Rises.html) | Jan 2025 |
 | dApp integrations | 330+ | [CoinMarketCap CMC AI](https://coinmarketcap.com/cmc-ai/space-id/what-is/) | 2025 |
 | Supported chains | 24+ | [CoinMarketCap CMC AI](https://coinmarketcap.com/cmc-ai/space-id/what-is/) | 2025 |
 | Blockchain explorer integrations | 8 | [CoinMarketCap latest updates](https://coinmarketcap.com/cmc-ai/space-id/latest-updates/) | July 2025 |
 | Funding raised | $10M (3 rounds) | [CoinDesk](https://www.coindesk.com/business/2023/02/07/decentralized-identity-network-space-id-raises-10m) | Feb 2023 |
-| Lead investors | Polychain Capital, dao5, Binance Labs | [CoinDesk](https://www.coindesk.com/business/2023/02/07/decentralized-identity-network-space-id-raises-10m) | Feb 2023 |
+| Lead investors | Polychain Capital, dao5 (Binance Labs led Sep 2022 seed; participated in this round) | [CoinDesk](https://www.coindesk.com/business/2023/02/07/decentralized-identity-network-space-id-raises-10m) | Feb 2023 |
 | ID token max supply | 2,000,000,000 | [SPACE ID docs](https://docs.space.id/overview/id-token) | — |
 | ID token unlocked (as of 2025) | ~430.5M (21.5%) | [TokenInsight](https://tokeninsight.com/en/coins/space-id/tokenomics) | 2025 |
 | ID token FDV | ~$147.9M USD | [CoinMarketCap](https://coinmarketcap.com/currencies/space-id/) | 2025 |
 | TLD launch stake requirement | 10,000 $ID | [SPACE ID 3.0 Decrypt](https://decrypt.co/204281/space-id-3-0-unveils-id-token-staking-and-game-changing-upgrades-for-its-permissionless-name-service-protocol) | Nov 2023 |
-| Protocol fee burn | 2% of $ID spent on each purchase | [CoinMarketCap Academy](https://coinmarketcap.com/academy/article/what-is-space-id-features-and-tokenomics) | — |
-| Protocol fee to DAO | 3% of $ID spent on each purchase | [CoinMarketCap Academy](https://coinmarketcap.com/academy/article/what-is-space-id-features-and-tokenomics) | — |
+| Protocol fee burn | 2% of $ID spent on each purchase | [SOURCE NEEDED] | — |
+| Protocol fee to DAO | 3% of $ID spent on each purchase | [SOURCE NEEDED] | — |
 
 ---
 
@@ -161,8 +161,8 @@ Source: [Decrypt SPACE ID 3.0](https://decrypt.co/204281/space-id-3-0-unveils-id
 | Primary uses | Staking (marketplace fee discounts, domain registration discounts), payments, governance voting |
 | Distribution | Seed Sale 20%, Team 15%, Marketing 13%, Foundation 12%, Strategic Sale 8%, Advisors 7%, Ecosystem Fund 10%, Community Airdrop 10%, Public Sale 5% |
 | Vesting period | Extends to 2028 |
-| Burn mechanism | 2% of $ID spent on each domain purchase is burned |
-| DAO treasury | 3% of $ID spent on each domain purchase goes to DAO treasury |
+| Burn mechanism | 2% of $ID spent on each domain purchase is burned [SOURCE NEEDED] |
+| DAO treasury | 3% of $ID spent on each domain purchase goes to DAO treasury [SOURCE NEEDED] |
 
 Source: [SPACE ID token docs](https://docs.space.id/overview/id-token), [Pintu Academy tokenomics](https://pintu.co.id/en/academy/post/space-id-tokenomics), [CoinMarketCap Academy](https://coinmarketcap.com/academy/article/what-is-space-id-features-and-tokenomics)
 
@@ -178,9 +178,9 @@ Source: [SPACE ID token docs](https://docs.space.id/overview/id-token)
 
 ## Grant Programme
 
-SPACE ID runs recurring grant seasons to fund ecosystem integrations. The grant programme has run at least 5 seasons. Notable metrics:
+SPACE ID runs recurring grant seasons to fund ecosystem integrations. The grant programme has run at least 9 seasons (Season 9: January to July 2026). Notable metrics:
 
-- Season 3: $121,650 in grants distributed
+- Season 3: $121,650 budget available; $16,450 actually distributed across 25 funded projects
 - Season 2: funded projects across exchange, wallet, tooling, gaming, infrastructure, and dApps tracks
 - SDK grant: up to $10,000 per project integrating the Web3 Name SDK
 - Evaluation criteria: Daily Active Users, Integration Utility, Integration Strength (resolution, reverse resolution, embedded registration)
@@ -213,7 +213,7 @@ Source: [SPACE ID roadmap docs](https://docs.space.id/overview/roadmap), [CoinMa
 | Open-source | Yes (GitHub: Space-ID) | Yes (GitHub: ensdomains) |
 | Permissionless TLDs | Yes (SPACE ID 3.0, stake 10,000 $ID) | No (controlled by ENS Labs / DAO) |
 | Token required | $ID for TLD launch and discounts; not required for basic registration | ETH for registration fees; no protocol token |
-| Domain count (2025) | 6.7M+ | ~2.5M active |
+| Domain count (2025) | 6.7M+ | ~910K active (late 2025) |
 
 ---
 
@@ -260,7 +260,7 @@ These are observable behaviours that could inform requirements:
 - [[multi-chain-name-resolution]] — pattern note on multi-chain resolution approaches
 - [[ens]] — primary comparison: single-chain source of truth vs per-chain deployment
 - [[unstoppable-domains]] — similar smart-contract naming system with one-time purchase model
-- [[zns-connect]] — similar per-chain deployment approach, smaller scale
+- [[zns]] — similar per-chain deployment approach, smaller scale
 
 ---
 
