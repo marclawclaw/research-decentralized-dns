@@ -66,7 +66,7 @@ Each layer is independently verifiable and independently cacheable:
 |----------|--------------------|------------------------|
 | Verifiability | Perfect (hash of data) | Good (signature by key holder) |
 | Mutability | None | Full (publisher can redirect at will) |
-| Caching | Indefinite (content never changes) | Bounded by TTL (1h default, 48h max) |
+| Caching | Indefinite (content never changes) | Bounded by TTL (5 minutes default since Kubo v0.34.0, 48 hours max) |
 | Namespace | Cryptographic (unguessable) | Cryptographic (human names need a bridge) |
 | Resolution latency | Fast (content can be cached anywhere) | Slow if via DHT (~11s median) |
 | Availability after publisher offline | Permanent (if pinned) | Degrades after 48h |
@@ -87,6 +87,7 @@ This is analogous to how IPNS is used in practice: the IPNS name is the stable "
 - https://docs.ipfs.tech/concepts/immutability/ (IPFS Docs: Immutability, 2025)
 - https://eth-limo.gitbook.io/documentation/beginner/configuring-your-ens-name/content-hash-overview/understanding-content-hashes-ipns-and-ipfs-for-ens (eth.limo: IPNS and ENS content hashes, 2025)
 - https://filebase.com/blog/ipfs-content-addressing-explained/ (Filebase: Content Addressing Explained, 2024)
+- https://github.com/ipfs/kubo/releases/tag/v0.34.0 (Kubo v0.34.0 release notes, March 2025)
 
 ## Tags
 

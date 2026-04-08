@@ -4,7 +4,7 @@
 
 A naming system is self-certifying when the name itself encodes a public key fingerprint, allowing anyone who receives a record to verify its authenticity cryptographically without contacting a trusted authority. No certificate authority, DNS root, or blockchain is required to validate the binding between a name and its current value.
 
-The concept originates from the Self-Certifying File System (SFS) by Mazieres et al. (1999) and is the foundational design of [[projects/ipns]].
+The concept originates from the Self-Certifying File System (SFS) by Mazieres and Kaashoek (1998, ACM SIGOPS European Workshop) and is the foundational design of [[projects/ipns]].
 
 ## Observed In
 
@@ -77,6 +77,7 @@ A decentralised DNS system for Logos could adopt self-certifying names at the cr
 - https://github.com/ipfs/specs/issues/219 (GitHub: IPNS Key Revocation issue, ongoing)
 - https://github.com/ipfs/camp/blob/master/DEEP_DIVES/16-revocation-rotating-of-ipns-keys.md (IPFS Camp: Key revocation deep dive)
 - https://blog.ceramic.network/key-revocation-in-self-certifying-protocols/ (Ceramic: Key revocation in self-certifying protocols)
+- https://www.semanticscholar.org/paper/Escaping-the-evils-of-centralized-control-with-Mazi%C3%A8res-Kaashoek/65cac3ca07b57d92cbc240343e0faea4e08ca18f (Mazieres and Kaashoek: Escaping the Evils of Centralized Control with Self-Certifying Pathnames, ACM SIGOPS European Workshop, September 1998)
 
 ## Tags
 

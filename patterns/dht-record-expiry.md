@@ -9,7 +9,7 @@ This pattern is central to [[projects/ipns]], which relies on the Amino DHT for 
 ## Observed In
 
 - [[projects/ipns]] (IPNS over Amino DHT): 48-hour maximum record lifetime; Kubo republishes every 4 hours.
-- IPFS content routing (provider records): records expire after ~24–48 hours; providers must republish.
+- IPFS content routing (provider records): records expire after ~24-48 hours; providers must republish.
 - Kademlia DHT generally: most Kademlia implementations expire records to prevent unbounded storage growth on storing nodes.
 
 ## How It Works (IPNS on Amino DHT)
@@ -33,16 +33,16 @@ Publisher                DHT Network              Resolver
    |                         |   (resolution fails)  |
 ```
 
-## Configuration (Kubo Defaults, as of v0.24)
+## Configuration (Kubo Defaults, current as of v0.34.0)
 
 | Parameter | Value | Notes |
 |-----------|-------|-------|
 | `--lifetime` (publish flag) | 48 hours | Validity timestamp embedded in the record |
-| `--ttl` (cache hint flag) | 1 hour | How long resolvers and gateways cache the result |
+| `--ttl` (cache hint flag) | 5 minutes | How long resolvers and gateways cache the result; lowered from 1 hour in Kubo v0.34.0 |
 | Republish interval | Every 4 hours | Background daemon republishes all owned IPNS keys |
 | DHT enforced max expiry | 48 hours | DHT storing peers discard records older than this regardless of `validity` field |
 
-Sources: https://github.com/ipfs/kubo/releases/tag/v0.24.0, https://github.com/ipfs/kubo/blob/master/docs/config.md
+Sources: https://github.com/ipfs/kubo/releases/tag/v0.34.0, https://github.com/ipfs/kubo/blob/master/docs/config.md
 
 ## Key Behaviours
 
@@ -87,6 +87,7 @@ A decentralised DNS system must decide whether name records are stored ephemeral
 - https://specs.ipfs.tech/routing/kad-dht/ (IPFS Standards: Kademlia DHT spec, 2025)
 - https://docs.ipfs.tech/concepts/dht/ (IPFS Docs: Distributed Hash Tables, 2025)
 - https://github.com/ipfs/kubo/releases/tag/v0.24.0 (Kubo v0.24.0 release notes, 2023)
+- https://github.com/ipfs/kubo/releases/tag/v0.34.0 (Kubo v0.34.0 release notes, March 2025)
 - https://github.com/ipfs/kubo/blob/master/docs/config.md (Kubo config documentation, 2025)
 - https://www.probelab.network/blog/ipns-performance-amino-dht (ProbeLab: IPNS Performance, August 2025)
 

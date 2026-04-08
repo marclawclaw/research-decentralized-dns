@@ -4,7 +4,7 @@ ecosystem: IPFS/libp2p
 category: Infrastructure
 website: https://docs.ipfs.tech/concepts/ipns/
 docs: https://specs.ipfs.tech/ipns/
-launched: 2016
+launched: 2015
 ---
 
 # IPNS (InterPlanetary Name System)
@@ -18,18 +18,18 @@ IPNS is transport-agnostic: records may be routed and resolved via the Kademlia-
 | Metric | Value | Date | Source |
 |--------|-------|------|--------|
 | Amino DHT server node count (stabilised) | ~25,000 | February 2026 | https://discuss.ipfs.tech/t/probelabs-notable-ipfs-performance-results-week-07-2026/20048 |
-| Amino DHT client node count | ~550,000+ (spike from ~350k observed) | February 2026 | https://discuss.ipfs.tech/t/probelabs-notable-ipfs-performance-results-week-07-2026/20048 |
-| IPNS median resolution latency (DHT, quorum 16) | ~11 seconds (p50); up to 37–60s outliers | August 2025 | https://www.probelab.network/blog/ipns-performance-amino-dht |
-| IPNS p50 rolling-window latency range | 7–11 seconds (with peaks to 15–20s) | August 2025 | https://www.probelab.network/blog/ipns-performance-amino-dht |
+| Amino DHT client node count | ~550,000+ (spike from ~350k observed) | March 2026 | https://discuss.ipfs.tech/t/probelabs-notable-ipfs-performance-results-week-10-2026/20064 |
+| IPNS median resolution latency (DHT, quorum 16) | ~11 seconds (p50); up to 37-60s outliers | August 2025 | https://www.probelab.network/blog/ipns-performance-amino-dht |
+| IPNS p50 rolling-window latency range | 7-11 seconds (with peaks to 15-20s) | August 2025 | https://www.probelab.network/blog/ipns-performance-amino-dht |
 | IPNS DHT record max TTL (enforced by network) | 48 hours | Ongoing | https://specs.ipfs.tech/ipns/ipns-record/ |
 | IPNS republish interval (Kubo default) | Every 4 hours | Ongoing | https://github.com/ipfs/kubo/blob/master/docs/config.md |
 | DHT quorum for IPNS resolution | 16 responses from distinct peers | Ongoing | https://www.probelab.network/blog/ipns-performance-amino-dht |
 | Default IPNS record lifetime (Kubo, since v0.24) | 48 hours (increased from 24h in v0.24) | 2023 | https://github.com/ipfs/kubo/releases/tag/v0.24.0 |
-| Default IPNS record TTL hint (Kubo, since v0.24) | 1 hour (increased from 1 minute in v0.24) | 2023 | https://github.com/ipfs/kubo/releases/tag/v0.24.0 |
+| Default IPNS record TTL hint (Kubo, since v0.34.0) | 5 minutes (lowered from 1 hour in v0.34.0) | March 2025 | https://github.com/ipfs/kubo/releases/tag/v0.34.0 |
 | Delegated routing P95 latency improvement (Someguy v0.7+) | ~30% reduction (~560ms faster) | 2025 | https://blog.ipfs.tech/2025-delegated-routing-caching/ |
 | Delegated routing: additional peer lookups eliminated | ~83% fewer extra lookups | 2025 | https://blog.ipfs.tech/2025-delegated-routing-caching/ |
-| Registered ENS names (proxy for IPFS/IPNS web3 naming demand) | [NOT FOUND] | — | — |
-| Number of active IPNS names on the network | [NOT FOUND] | — | — |
+| Registered ENS names (proxy for IPFS/IPNS web3 naming demand) | [NOT FOUND] | - | - |
+| Number of active IPNS names on the network | [NOT FOUND] | - | - |
 
 ## How it works
 
@@ -56,7 +56,7 @@ To give users a human-readable address, two approaches exist:
 | `value` | The target path (e.g. `/ipfs/bafybei...`) |
 | `sequence` | Monotonically increasing counter; resolvers pick the highest-sequence valid record |
 | `validity` | ISO 8601 expiry timestamp (e.g. 48 hours from publication) |
-| `ttl` | Cache hint in nanoseconds; default 1 hour since Kubo v0.24 |
+| `ttl` | Cache hint in nanoseconds; default 5 minutes since Kubo v0.34.0 (was 1 hour from v0.24 to v0.33) |
 | `signatureV2` | Ed25519 signature over the DAG-CBOR `data` field |
 | `pubKey` | Optional embedded public key (required if not derivable from the name) |
 
@@ -85,7 +85,7 @@ The Kademlia key for DHT storage is `SHA2-256(/ipns/<binary-key>)`.
 
 ## Architecture decisions
 
-**Self-certifying PKI namespace.** IPNS derives from the Self-certifying File System (SFS) model: the name is the public key hash, so no external authority (DNS root, blockchain) is required to bind name to key. This makes IPNS fully permissionless and infrastructure-independent.
+**Self-certifying PKI namespace.** IPNS derives from the Self-Certifying File System (SFS) model (Mazieres and Kaashoek, 1998): the name is the public key hash, so no external authority (DNS root, blockchain) is required to bind name to key. This makes IPNS fully permissionless and infrastructure-independent.
 
 **Kademlia DHT for global state.** Using the same Amino DHT as IPFS content routing gives IPNS a globally shared, replication-redundant record store with no single point of failure. The trade-off is that DHT lookups are inherently slow (multiple network round trips to collect a quorum), giving the ~11s median resolution time.
 
@@ -95,7 +95,7 @@ The Kademlia key for DHT storage is `SHA2-256(/ipns/<binary-key>)`.
 
 **DAG-CBOR for extensibility.** The inner record payload uses deterministic CBOR (DAG-CBOR) inside a protobuf envelope. This allows adding new record fields (e.g. extra metadata) without breaking existing parsers, as the protobuf outer layer is stable.
 
-**TTL as cache hint (since v0.24).** Before Kubo v0.24, the TTL field was ignored and a hardcoded 1-minute resolution cache was used. From v0.24, publishers control caching behaviour: a short TTL forces resolvers to re-query more frequently; a long TTL allows aggressive HTTP gateway caching.
+**TTL as cache hint (since v0.24, lowered in v0.34.0).** Before Kubo v0.24, the TTL field was ignored and a hardcoded 1-minute resolution cache was used. From v0.24, publishers control caching behaviour: a short TTL forces resolvers to re-query more frequently; a long TTL allows aggressive HTTP gateway caching. In v0.34.0 the default TTL was lowered from 1 hour back to 5 minutes to match typical DNS behaviour and reduce stale-cache complaints.
 
 ## Differentiators
 
@@ -107,7 +107,7 @@ The Kademlia key for DHT storage is `SHA2-256(/ipns/<binary-key>)`.
 
 ## Limitations and criticisms
 
-**Slow DHT resolution.** Median resolution latency is ~11 seconds (quorum 16, Amino DHT, August 2025). Outliers extend to 37–60 seconds. This is orders of magnitude slower than DNS (typically <100ms) and makes IPNS unsuitable for interactive use cases requiring fast name resolution. Community characterisation: "IPNS is very reliable, but very slow." [Source: https://www.probelab.network/blog/ipns-performance-amino-dht]
+**Slow DHT resolution.** Median resolution latency is ~11 seconds (quorum 16, Amino DHT, August 2025). Outliers extend to 37-60 seconds. This is orders of magnitude slower than DNS (typically <100ms) and makes IPNS unsuitable for interactive use cases requiring fast name resolution. Community characterisation: "IPNS is very reliable, but very slow." [Source: https://www.probelab.network/blog/ipns-performance-amino-dht]
 
 **Mandatory republishing.** Because DHT peers only store records for 48 hours, publishers must republish every ~4 hours. If a publisher goes offline, the IPNS name eventually resolves to nothing. This creates an operational burden that does not exist with traditional DNS (which stores records persistently at authoritative nameservers).
 
@@ -130,10 +130,13 @@ The Kademlia key for DHT storage is `SHA2-256(/ipns/<binary-key>)`.
 - https://specs.ipfs.tech/routing/kad-dht/ (IPFS Standards: Kademlia DHT spec, 2025)
 - https://www.probelab.network/blog/ipns-performance-amino-dht (ProbeLab: Measuring IPNS Performance on the Public Amino DHT, August 2025)
 - https://discuss.ipfs.tech/t/probelabs-notable-ipfs-performance-results-week-07-2026/20048 (ProbeLab: Notable IPFS Performance Results Week 07, 2026)
+- https://discuss.ipfs.tech/t/probelabs-notable-ipfs-performance-results-week-10-2026/20064 (ProbeLab: Notable IPFS Performance Results Week 10, 2026)
 - https://blog.ipfs.tech/2025-delegated-routing-caching/ (IPFS Blog: Faster P2P Retrieval with Delegated Routing Caching, 2025)
 - https://github.com/ipfs/kubo/releases/tag/v0.24.0 (Kubo v0.24.0 release notes, 2023)
+- https://github.com/ipfs/kubo/releases/tag/v0.34.0 (Kubo v0.34.0 release notes, March 2025)
 - https://docs.ipfs.tech/concepts/dnslink/ (IPFS Docs: DNSLink, 2025)
 - https://eth-limo.gitbook.io/documentation/beginner/configuring-your-ens-name/content-hash-overview/understanding-content-hashes-ipns-and-ipfs-for-ens (eth.limo: IPNS and ENS content hashes, 2025)
 - https://github.com/ipfs/specs/issues/219 (GitHub: IPNS Key Revocation issue, ongoing)
 - https://github.com/ipfs/camp/blob/master/DEEP_DIVES/16-revocation-rotating-of-ipns-keys.md (IPFS Camp: Key revocation and rotation deep dive)
 - https://arxiv.org/pdf/2105.08395 (Academic: Enabling self-verifiable mutable content items in IPFS, 2021)
+- https://www.semanticscholar.org/paper/Escaping-the-evils-of-centralized-control-with-Mazi%C3%A8res-Kaashoek/65cac3ca07b57d92cbc240343e0faea4e08ca18f (Mazieres and Kaashoek: Escaping the Evils of Centralized Control with Self-Certifying Pathnames, ACM SIGOPS European Workshop, September 1998)
