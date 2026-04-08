@@ -25,7 +25,7 @@ Note: "active" vs "registered" definitions differ across protocols. ENS names ex
 |----------|--------------------------|------|--------|
 | [[projects/ens]] | ~3.2M | Feb 2026 | [CryptoNewsNavigator](https://www.cryptonewsnavigator.com/academy/article/why-ens-governance-decides-ethereums-identity-layer-future) |
 | [[projects/handshake]] | [NOT FOUND] | — | — |
-| [[projects/gnu-name-system]] | [NOT FOUND] | — | — |
+| [[gns]] | [NOT FOUND] | — | — |
 | [[projects/ipns]] | [NOT FOUND] | — | — |
 
 ## Protocol revenue
