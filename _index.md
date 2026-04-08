@@ -45,7 +45,7 @@ How it works: two core smart contracts (Registry and Resolver) on Ethereum mainn
 | Status | Active; ICANN-accredited registrar since 2024 |
 | Source | [Unstoppable Domains Wikipedia](https://en.wikipedia.org/wiki/Unstoppable_Domains); [Domain Name Wire growth](https://domainnamewire.com/2026/03/12/unstoppable-domains-growth-the-past-and-what-happens-in-the-future/) |
 
-How it works: two smart contract architectures (legacy CNS on Ethereum L1; current UNS on Polygon). Domains minted as ERC-721 NFTs on Polygon for $0 gas. One-time purchase with no renewal fee (see [[patterns/perpetual-name-ownership]]). Migrated from Ethereum L1 to Polygon in November 2021 (see [[patterns/l2-migration-for-naming]]). Supports .crypto, .wallet, .nft, .blockchain, .coin, .x and others. ICANN accreditation (August 2024) lets Unstoppable also sell traditional DNS TLDs (.com, etc.). DNS domains compose 90%+ of revenue by early 2026.
+How it works: two smart contracts (Registry and Resolver) mirroring ENS but with one-time purchase (no renewal fee). Domains minted as ERC-721 NFTs on Polygon (for gas efficiency) with Ethereum as the canonical chain. Resolution checks Polygon first, then Ethereum. Supports .crypto, .wallet, .nft, .blockchain, .coin and others. ICANN accreditation lets Unstoppable also sell traditional DNS TLDs (.com, etc.).
 
 ---
 
