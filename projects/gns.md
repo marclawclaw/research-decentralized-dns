@@ -32,7 +32,7 @@ GNS is a decentralised, censorship-resistant domain name resolution protocol dev
 | GNUnet latest stable version | 0.27.0 | Mar 2026 | [Tux Machines announcement](https://news.tuxmachines.org/n/2026/03/20/GNU_Projects_GNUnet_0_27_0_and_libredwg_0_13_4_released.shtml) |
 | Academic citations (CANS 2014 paper) | [NOT FOUND] (listed on Semantic Scholar) | — | [Semantic Scholar](https://www.semanticscholar.org/paper/A-Censorship-Resistant%2C-Privacy-Enhancing-and-Fully-Wachs-Schanzenbach/f447f115cecee88ab72a61e79b342cce8bc86954) |
 | TLDs mirrored on GNUnet main peer | .ee and .nu (proof-of-concept) | Aug 2025 | [GNUnet NGI Entrust update](https://www.gnunet.org/en/news/2025-08-NGI-Entrust-GNS-TLDs-Update.html) |
-| Funders | NLnet (NGI Zero Entrust, NGI Search and Discovery), European Commission, Deutsche Forschungsgemeinschaft | 2023-2026 | [GNUnet project pages](https://www.gnunet.org/en/gns.html) |
+| Funders | NLnet (NGI Zero Entrust, NGI Search and Discovery), European Commission, Deutsche Forschungsgemeinschaft | 2023-2026 | [GNUnet About page](https://www.gnunet.org/en/about.html) |
 
 > **Adoption note:** GNUnet development releases explicitly warn that the network is "tiny and thus unlikely to provide good anonymity." No third-party stats on active nodes or GNS name registrations are publicly available. GNS remains primarily a research and standards artefact with limited production deployment.
 
@@ -117,7 +117,7 @@ GNS supports all standard DNS record types (A, AAAA, MX, TXT, NS, CNAME, etc.) p
 | SBOX | Extension of BOX handling arbitrary underscore-label prefixes (SMIMEA, URI, etc.) |
 | VPN | Points to a GNUnet Virtual Public Network peer/service; resolver allocates a local IPv4/IPv6 address |
 | LEHO | Legacy hostname hint; tells the resolver what HTTP Host header to use when connecting via a GNUnet overlay service |
-| DID_DOCUMENT | W3C DID Document stored directly in a GNS zone (see [[gns-did-method]]) |
+| DID_DOCUMENT | W3C DID Document stored directly in a GNS zone (see [LSD0005: GNS DID Method](https://lsd.gnunet.org/lsd0005/)) |
 
 See the full GANA registry at https://gana.gnunet.org/gnu-name-system-record-types/gnu_name_system_record_types.html.
 
@@ -130,7 +130,7 @@ GNS provides several integration paths for legacy DNS clients:
 | Mechanism | How it works | Trust implications |
 |-----------|-------------|-------------------|
 | **NSS plugin** | Adds `gns` entry to `/etc/nsswitch.conf`; system resolver calls GNS for matching names | Full cryptographic verification; no trust compromise |
-| **dns2gns proxy** | Runs a local DNS server on port 5253; forwards matching queries to GNS, all others to upstream DNS | Full verification for GNS names; trust depends on upstream for DNS |
+| **dns2gns proxy** | Runs a local DNS server (code default port 2853; docs recommend 5353 for non-privileged use); forwards matching queries to GNS, all others to upstream DNS | Full verification for GNS names; trust depends on upstream for DNS |
 | **gnunet-gns-proxy** | SOCKS5 proxy (port 7777); intercepts HTTPS and performs GNS resolution with TLS/X.509 revalidation | Full verification; requires browser SOCKS5 configuration |
 | **systemd-resolved integration** | `resolvectl` routes GNS TLD queries to the local dns2gns port | Full verification |
 | **GNS2DNS gateways** | Public servers that resolve GNS names via DNS; used by search engine crawlers | **Breaks cryptographic chain of trust**; gateway is trusted third party |
@@ -273,3 +273,4 @@ If a zone private key is compromised, GNS provides a revocation mechanism:
 - [GNUnet FAQ](https://www.gnunet.org/en/faq.html)
 - [GNUnet Wikipedia article](https://en.wikipedia.org/wiki/GNUnet)
 - [GNUnet bibliography](https://bib.gnunet.org/)
+- [GNUnet About page](https://www.gnunet.org/en/about.html)

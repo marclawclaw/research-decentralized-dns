@@ -29,7 +29,7 @@ Legacy applications resolve names via the system stub resolver (usually `/etc/re
 
 ### 2. dns2gns proxy (`gnunet-dns2gns`)
 
-- Runs a local DNS server (default port 5253; must be port 53 if editing `/etc/resolv.conf` directly).
+- Runs a local DNS server (code default port 2853; GNUnet docs recommend port 5353 for non-privileged use; must be port 53 if editing `/etc/resolv.conf` directly).
 - Receives DNS queries from any application; routes GNS-matching queries to the local GNS daemon; forwards all others to a configured upstream DNS resolver.
 - Integrates with `systemd-resolved` via `resolvectl`.
 - **Trust impact**: none for GNS names; trust depends on upstream DNS for non-GNS names.
