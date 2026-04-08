@@ -21,8 +21,8 @@ D3 Global is the company building the Doma Protocol, described as the first purp
 
 ## Team
 
-- **CEO / Co-founder:** Fred Hsu — previously co-founder and CTO of Oversee.net (sold to Oak Hill Capital after $150M Series A); co-founder and CEO of Manage.com (acquired by Criteo). [Source: https://techstartups.com/2024/02/06/founder-story-interview-with-fred-hsu-co-founder-and-ceo-of-d3-on-web3-domains/, February 2024]
-- **Co-founder:** Paul Stahura — previously founder, CEO, and chairman of eNom (major domain registrar). [Source: same]
+- **CEO / Co-founder:** Fred Hsu — previously co-founder and CTO of Oversee.net (Oak Hill Capital invested $150M in preferred stock; Oversee.net was not sold to Oak Hill); co-founder and CEO of Manage.com (acquired by Criteo). [Source: https://techstartups.com/2024/02/06/founder-story-interview-with-fred-hsu-co-founder-and-ceo-of-d3-on-web3-domains/, February 2024]
+- **Co-Founder and Lead Advisory Board member:** Paul Stahura — previously founder and CEO of eNom (major domain registrar, acquired by Demand Media in 2006); co-founder and CEO of Donuts Inc. [Source: https://icannwiki.org/Paul_Stahura; https://www.businesswire.com/news/home/20060501006305/en/Leading-Domain-Registrar-eNom-Purchased-Group-Led]
 
 ## Funding
 
@@ -41,7 +41,7 @@ D3 Global is the company building the Doma Protocol, described as the first purp
 
 Doma Chain is an EVM-compatible Layer 2:
 
-- **Execution layer:** OP Stack (Optimism), deployed via Conduit. Conduit's G2 sequencer claims 100 Mgas/s throughput (10x standard OP Stack sequencers). [Source: https://www.conduit.xyz, 2025]
+- **Execution layer:** OP Stack (Optimism), deployed via Conduit. Conduit's G2 sequencer claims 100 Mgas/s throughput (20-40x the 2.5 Mgas/s baseline of standard OP Stack sequencers). [Source: https://blog.conduit.xyz/introducing-conduit-g2-sequencer/, 2025]
 - **Data availability:** Celestia (modular DA layer, minimises cost for high-volume minting). [Source: https://messari.io/report/doma-domains-galore]
 - **Cross-chain messaging:** LayerZero v2, enabling Omnichain Fungible Tokens (OFTs) on Ethereum, Base, Solana. [Source: https://messari.io/report/doma-domains-galore]
 - **Wallet infrastructure:** Privy
@@ -53,7 +53,7 @@ Doma Chain is an EVM-compatible Layer 2:
 Doma introduces two ERC-20/NFT token primitives per domain:
 
 1. **Domain Ownership Token (DOT):** NFT representing full ownership and transfer rights. Tradeable, collaterable, fractionalisable. Minted on the user's chosen chain; the Doma Chain holds the authoritative record.
-2. **Domain Service Token (DST):** Controls ongoing DNS operations (DNS record edits, email routing). Separating ownership from DNS control allows a domain to be traded while continuing to function normally.
+2. **Domain Synthetic Tokens (DSTs):** Control ongoing DNS operations (DNS record edits, email routing). Created by decomposing a DOT via the Composer Module; each Synthetic Token grants authority over a specific domain function without conferring full ownership. Separating ownership from DNS control allows a domain to be traded while continuing to function normally.
 
 [Source: https://docs.doma.xyz/readme/protocol-overview; https://messari.io/report/doma-domains-galore]
 
@@ -76,7 +76,7 @@ Announced October 2025. D3 updated the Doma registry smart contract to emit ENS-
 ## Supported Domains
 
 - **Web2 TLDs available at mainnet:** .com, .net, .ai, .org, .xyz, and others managed by registrar partners
-- **Web3-native TLDs (planned, pending ICANN approval):** .shib, .near, .core, .ape, .doge, .sol, .solana, .avax, .magic — expected Summer 2026
+- **Web3-native TLDs (planned, pending ICANN approval):** .shib, .near, .core, .ape, .doge, .sol, .solana, .avax, .magic — applicants can apply in the ICANN 2026 gTLD application window (April 30 to August 12, 2026); approved TLD launches would follow years after that. [Source: https://newgtldprogram.icann.org/en/application-rounds/round2]
 - **Registrar claim at mainnet:** 510+ communities and TLDs supported via D3.app
 - **Total addressable market claimed:** 371M+ existing internet domains; $360B domain industry
 
@@ -140,13 +140,13 @@ Note: testnet metrics (705k domains tokenised in August vs 200k+ at mainnet laun
 ### Centralisation
 
 - DNS root zone is administered by ICANN; tokenising a domain does not remove upstream ICANN/registry/registrar power. If a government or court orders seizure, the Compliance Module is designed to execute it on-chain.
-- Initial validator set (Genesis) is composed only of D3, Conduit, and early registrar partners — not a permissionless validator set. Plans for broader decentralisation [NOT FOUND] in public docs as of April 2026.
+- Initial validator set (Genesis) is composed only of D3, Conduit, and early registrar partners. Plans for broader decentralisation [NOT FOUND] in public docs as of April 2026.
 - Custodian Module requires KYC contact submission, meaning anonymous domain ownership is not possible for tokenised domains.
 
 ### Privacy
 
 - ICANN's Whois/registrant data requirements mean on-chain domain ownership cannot be fully pseudonymous through Doma. The Custodian Module explicitly enforces contact information collection.
-- DNS resolution itself remains on traditional infrastructure — privacy properties of DNS (e.g., DNS-over-HTTPS, DNS-over-TLS) are not addressed by the protocol.
+- DNS resolution itself remains on traditional infrastructure; privacy properties of DNS (e.g., DNS-over-HTTPS, DNS-over-TLS) are not addressed by the protocol.
 
 ### Censorship Resistance
 
@@ -167,8 +167,7 @@ Note: testnet metrics (705k domains tokenised in August vs 200k+ at mainnet laun
 
 - [[projects/ens]] — Web3-native naming; no ICANN compliance; no DNS RWA tokenisation
 - [[projects/unstoppable-domains]] — Web3 TLDs; not ICANN-approved; no DNS sync
-- [[projects/handshake]] — decentralised DNS root alternative; not ICANN-compliant
-- [[projects/sns]] — Solana Name Service; single-chain; no traditional DNS integration
+- [[handshake]] — decentralised DNS root alternative; not ICANN-compliant
 
 ## Tags
 
