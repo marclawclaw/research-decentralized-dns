@@ -52,7 +52,7 @@ Source: [Namecoin FAQ](https://www.namecoin.org/docs/faq/), [Namecoin Wikipedia]
 
 ## Design Tradeoffs
 
-### Short Expiry (e.g. 200 days)
+### Short Expiry (e.g. 250 days, as in Namecoin)
 
 **Pros:**
 - Namespace stays fresh; abandoned names return to pool quickly.
@@ -115,7 +115,7 @@ Failure to provide reliable renewal tooling led to legitimate Namecoin owners lo
 
 ## Design Implications for a Decentralised Naming RFP
 
-1. **Expiry period should balance freshness against operational burden.** Annual renewal (ENS model) is a reasonable default for general-purpose naming. 200-day expiry (Namecoin) is aggressive and increases failure risk.
+1. **Expiry period should balance freshness against operational burden.** Annual renewal (ENS model) is a reasonable default for general-purpose naming. 250-day expiry (Namecoin) is relatively short and increases renewal management burden.
 
 2. **Grace periods are user-friendly and should be included.** A window where the name stops resolving but the owner retains renewal rights is a practical protection against accidental loss.
 

@@ -11,9 +11,9 @@
 
 ## Summary
 
-Namecoin is the first blockchain-based naming system, launched on 18 April 2011 as a fork of Bitcoin. It introduced the `.bit` top-level domain, operated outside ICANN jurisdiction, and pioneered the concept of storing key-value data on a blockchain. Namecoin was the first published solution to [[zookos-triangle]] (the naming trilemma of human-meaningful, secure, and decentralised names).
+Namecoin is the first blockchain-based naming system, launched on 18 April 2011 as a fork of Bitcoin. It introduced the `.bit` top-level domain, operated outside ICANN jurisdiction, and pioneered the concept of storing key-value data on a blockchain. Namecoin was the first published solution to [Zooko's Triangle](https://en.wikipedia.org/wiki/Zooko%27s_triangle) (the naming trilemma of human-meaningful, secure, and decentralised names).
 
-Despite its historical significance, Namecoin failed to achieve mainstream adoption. The primary causes were [[name-squatting]] dominating registrations, the absence of native browser resolution support, and a near-absent path to recovering brand names from squatters. As of 2015, only 28 of approximately 120,000 registered `.bit` names had non-trivial content (Kalodner et al., WEIS 2015).
+Despite its historical significance, Namecoin failed to achieve mainstream adoption. The primary causes were name squatting dominating registrations, the absence of native browser resolution support, and a near-absent path to recovering brand names from squatters. As of 2015, only 28 of 196,023 registered `.bit` names had non-trivial content (Kalodner et al., WEIS 2015; note the abstract quotes ~120,000, referring to a subset of the full dataset). The study is over a decade old and no comparable empirical survey has been published since.
 
 Namecoin is best studied as a **cautionary reference** for decentralised naming RFP design: it correctly identified the problem space but made economic and architectural choices that prevented real-world adoption.
 
@@ -24,15 +24,15 @@ Namecoin is best studied as a **cautionary reference** for decentralised naming 
 | Metric | Value | Source / Date |
 |--------|-------|---------------|
 | Launch date | 18 April 2011 | [Wikipedia](https://en.wikipedia.org/wiki/Namecoin) (2024) |
-| Total registered `.bit` names (2015 study) | ~120,000 | [Kalodner et al. 2015](https://econinfosec.org/archive/weis2015/papers/WEIS_2015_kalodner.pdf) |
+| Total registered `.bit` names (2015 study) | 196,023 (full dataset; abstract cites ~120,000, which is a subset) | [Kalodner et al. 2015](https://econinfosec.org/archive/weis2015/papers/WEIS_2015_kalodner.pdf) |
 | Active names with non-trivial content (2015) | 28 | [Kalodner et al. 2015](https://econinfosec.org/archive/weis2015/papers/WEIS_2015_kalodner.pdf) |
-| Squatter-to-legitimate ratio (2015) | >99.98% squatted or inactive | [Kalodner et al. 2015](https://econinfosec.org/archive/weis2015/papers/WEIS_2015_kalodner.pdf) |
+| Squatter-to-legitimate ratio (2015) | >99.985% squatted or inactive (28 of 196,023) | [Kalodner et al. 2015](https://econinfosec.org/archive/weis2015/papers/WEIS_2015_kalodner.pdf) |
 | Transfers from squatter to legitimate user (lifetime, 2015) | 14 (lower bound) to ~250 (upper bound) | [Kalodner et al. 2015](https://econinfosec.org/archive/weis2015/papers/WEIS_2015_kalodner.pdf) |
 | Market cap (April 2026) | ~$13.2M USD | [CoinMarketCap](https://coinmarketcap.com/currencies/namecoin/) (Apr 2026) |
 | Circulating supply | 14,736,400 NMC | [CoinMarketCap](https://coinmarketcap.com/currencies/namecoin/) (Apr 2026) |
 | Max supply | 21,000,000 NMC | [Wikipedia](https://en.wikipedia.org/wiki/Namecoin) |
 | Registration fee | 0.01 NMC | [Namecoin FAQ](https://www.namecoin.org/docs/faq/) |
-| Name expiry | 36,000 blocks (~200 days) | [Namecoin FAQ](https://www.namecoin.org/docs/faq/) |
+| Name expiry | 36,000 blocks (~250 days) | [Namecoin FAQ](https://www.namecoin.org/docs/faq/) |
 | Block time | ~10 minutes | [Wikipedia](https://en.wikipedia.org/wiki/Namecoin) |
 | Consensus | Proof-of-Work, SHA-256, merged mining with Bitcoin | [Wikipedia](https://en.wikipedia.org/wiki/Namecoin) |
 | Value size limit per record | 520 bytes (UTF-8 JSON) | [Namecoin Wiki: Domain Name Specification](https://wiki.namecoin.org/index.php?title=Domain_Name_Specification) |
@@ -57,11 +57,11 @@ Names in Namecoin use prefixes to distinguish purpose:
 | `d/` | DNS domain (maps to `.bit` TLD) | `d/example` → `example.bit` |
 | `id/` | Decentralised identity | `id/alice` |
 
-The `id/` namespace, launched May 2012, is considered the first Web3 decentralised identity service, predating ENS.
+The `id/` namespace was available as a usable on-chain prefix from Namecoin's early operation, though the NameID tool providing a structured identity interface launched in June 2013. It is considered the first Web3 decentralised identity service, predating ENS.
 
 ### Three-Operation Registration Model
 
-Namecoin uses three distinct blockchain operations for name lifecycle management. See [[name-registration-two-phase-commit]] for the anti-frontrunning pattern.
+Namecoin uses three distinct blockchain operations for name lifecycle management. See the Three-Operation Registration Model section below for the anti-frontrunning pattern.
 
 **1. `name_new` (Pre-registration)**
 - Broadcasts a salted hash commitment: `hash(d/example + random_salt)`
@@ -123,9 +123,9 @@ The `ncdns` tool supports TLSA/DANE records for TLS certificate validation ancho
 
 ### The Squatting Catastrophe
 
-The 2015 Princeton/WEIS study by Kalodner, Carlsten, Ellenbogen, Bonneau, and Narayanan is the most rigorous empirical analysis of Namecoin to date:
+The 2015 Princeton/WEIS study by Kalodner, Carlsten, Ellenbogen, Bonneau, and Narayanan is the most rigorous empirical analysis of Namecoin to date. This study is now over a decade old; no comparable peer-reviewed survey has been published as of 2026, so these figures represent a historical snapshot:
 
-- Of ~120,000 registered `.bit` names, only **28** had non-trivial, non-squatted content.
+- Of 196,023 registered `.bit` names in the full dataset (the abstract cited ~120,000 as a subset), only **28** had non-trivial, non-squatted content.
 - The market for name transfers was essentially non-existent: 14 to ~250 total lifetime transfers from squatters to legitimate users.
 - Most "legitimate" names either redirected to a traditional DNS domain or mirrored content from one.
 
@@ -158,7 +158,7 @@ Namecoin suffered from funding difficulties over its lifecycle. Some developers 
 
 ## What Namecoin Got Right
 
-1. **First solution to Zooko's Triangle**: Namecoin proved a human-meaningful, secure, decentralised naming system is technically constructible (2011). This directly inspired ENS, Handshake, and others.
+1. **First solution to [Zooko's Triangle](https://en.wikipedia.org/wiki/Zooko%27s_triangle)**: Namecoin proved a human-meaningful, secure, decentralised naming system is technically constructible (2011). This directly inspired ENS, Handshake, and others.
 2. **Two-phase commit anti-frontrunning**: The `name_new` / `name_firstupdate` pattern (hash commitment then reveal) prevents miners and observers from sniping names during registration. This pattern has been adopted (or independently rediscovered) by successors.
 3. **Namespace separation**: The `d/` and `id/` prefix convention cleanly separates DNS from identity, enabling multiple services on one chain without conflict.
 4. **Merged mining**: Allowing Bitcoin miners to simultaneously mine Namecoin at zero extra energy cost is elegant. It provides Namecoin with Bitcoin-grade hash rate security without requiring a separate mining ecosystem.
@@ -188,10 +188,10 @@ Namecoin suffered from funding difficulties over its lifecycle. Some developers 
 | Merged mining | Yes (with Bitcoin) | No | N/A |
 | TLD approach | New `.bit` TLD | Replaces root zone | `.eth` subdomain |
 | Name auction | No (first-come first-served + fee) | Vickrey blind auction | Vickrey auction (for short names) |
-| Dispute resolution | None | None | None (ICANN-level only) |
+| Dispute resolution | None | None | Limited (4-of-7 multisig can intervene; no UDRP-equivalent) |
 | Browser support | Requires extension/software | Requires resolver | Requires extension |
 | Value size limit | 520 bytes | Larger (covenants) | Unlimited (smart contract storage) |
-| Active use | Near-zero | Low but growing | High (2.5M+ names) |
+| Active use | Near-zero | Low but growing | High (2.5M+ names as of 2022; current figure not independently verified) |
 | Launch year | 2011 | 2020 | 2017 |
 
 ---
@@ -235,11 +235,10 @@ These are the critical design lessons derived from Namecoin's failure to achieve
 
 ## Related Notes
 
-- [[zookos-triangle]]
+- [Zooko's Triangle](https://en.wikipedia.org/wiki/Zooko%27s_triangle)
 - [[name-squatting-prevention]]
 - [[merged-mining-for-naming]]
 - [[name-expiry-renewal-mechanism]]
-- [[name-registration-two-phase-commit]]
 - [[handshake]]
 - [[ens]]
 

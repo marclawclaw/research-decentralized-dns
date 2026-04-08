@@ -18,12 +18,12 @@ The 2015 Princeton/WEIS empirical study (Kalodner, Carlsten, Ellenbogen, Bonneau
 
 | Metric | Value |
 |--------|-------|
-| Total registered `.bit` names | ~120,000 |
+| Total registered `.bit` names | 196,023 (full dataset; abstract figure ~120,000 is a subset) |
 | Names with non-trivial, non-squatted content | 28 |
-| Squatter-to-legitimate ratio | >99.98% squatted or inactive |
+| Squatter-to-legitimate ratio | >99.985% squatted or inactive (28 of 196,023) |
 | Lifetime name transfers (squatter to legitimate user) | 14 (lower bound) to ~250 (upper bound) |
 
-Source: [Kalodner et al. WEIS 2015](https://econinfosec.org/archive/weis2015/papers/WEIS_2015_kalodner.pdf)
+Source: [Kalodner et al. WEIS 2015](https://econinfosec.org/archive/weis2015/papers/WEIS_2015_kalodner.pdf). Note: this study is over a decade old; no comparable peer-reviewed survey of the current namespace has been published as of 2026.
 
 **Root cause in Namecoin:** Registration was priced at 0.01 NMC with no market-based adjustment. This fee was so low that mass squatting required negligible capital. Pretty much every short word, common name, and brand acronym was registered within the first years of operation.
 
@@ -46,7 +46,7 @@ Source: [Kalodner et al. WEIS 2015](https://econinfosec.org/archive/weis2015/pap
   - Price discovery reflects actual demand, not fixed cost.
   - Squatters must commit real capital at bid time (locked for the auction duration).
   - The system is incentive-compatible: truthful bidding is the dominant strategy.
-- **Handshake implementation:** Blind Vickrey auction; proceeds are burned (deflationary). Auction period is ~720 blocks (~5 days for reveal). Source: [Handshake documentation](https://handshake.org/).
+- **Handshake implementation:** Blind Vickrey auction; proceeds are burned (deflationary). The bidding period is ~720 blocks (~5 days); the subsequent reveal period is ~1,440 blocks (~10 days). Source: [Handshake documentation](https://handshake.org/).
 - **ENS implementation:** Vickrey auction used for short (≤6 character) `.eth` names historically; replaced by a simpler annual fee model for most names in ENS 2.0.
 - **Verdict:** Effective at price discovery and capital commitment. Does not prevent squatting of valuable names if a squatter has deep pockets; but raises the cost dramatically.
 
@@ -62,7 +62,7 @@ Source: [Kalodner et al. WEIS 2015](https://econinfosec.org/archive/weis2015/pap
 
 ### 4. Expiry with Grace Period (Namecoin, Handshake)
 
-- **Mechanism:** Names expire after a fixed block count (Namecoin: 36,000 blocks, ~200 days) unless renewed. A grace period allows the owner to renew before the name opens to re-registration.
+- **Mechanism:** Names expire after a fixed block count (Namecoin: 36,000 blocks, ~250 days) unless renewed. A grace period allows the owner to renew before the name opens to re-registration.
 - **Properties:**
   - Prevents permanent accumulation of unused names.
   - Squatters who do not renew release names back to the pool.
